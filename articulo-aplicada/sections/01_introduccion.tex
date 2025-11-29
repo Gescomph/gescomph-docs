@@ -1,0 +1,14 @@
+\section{Introducción}
+\label{sec:introduccion}
+
+Modernizar la tecnología en el sector público es mucho más que actualizar software; es un requisito para que el Estado responda mejor a los ciudadanos. El problema es que muchas instituciones siguen atadas a sistemas viejos, monolíticos y difíciles de mantener, que frenan cualquier intento de innovación.
+
+Hoy en día, la tendencia casi automática es pensar que la solución a todo esto son los \textit{microservicios}. Se venden como la arquitectura ideal para escalar y ser ágiles. Pero hay que tener cuidado. La literatura técnica y la experiencia práctica nos dicen otra cosa: romper una aplicación en mil pedazos antes de tiempo suele traer más dolores de cabeza que beneficios, especialmente si no se tiene un equipo enorme para gestionar esa complejidad.
+
+Aquí es donde entra el **monolito modular**. No es un paso atrás, sino una decisión inteligente para sistemas de tamaño medio. La idea es simple: mantienes la simplicidad de tener todo en un solo lugar (sin latencia de red, despliegues fáciles), pero por dentro organizas el código con la misma disciplina que si fueran microservicios. Así obtienes lo mejor de los dos mundos.
+
+Con esta mentalidad construimos **GESCOMPH**, un sistema para gestionar contratos públicos. No nos lanzamos a ciegas a usar lo último de moda. Preferimos usar \textit{Clean Architecture} para que el negocio no dependa de la tecnología de turno. Esto nos permite mantener el código limpio y, si el día de mañana el sistema crece muchísimo, migrar a microservicios será mucho más fácil porque la casa ya está ordenada.
+
+Para la seguridad, tampoco reinventamos la rueda: usamos estándares probados como **JWT** y **OAuth 2.0**, y todo corre sobre contenedores para que sea fácil de mover y escalar.
+
+En este artículo no solo vamos a mostrar cómo está hecho \texttt{gescomph-api}. Queremos usarlo de ejemplo para discutir por qué, a veces, una arquitectura bien pensada y "aburrida" es mucho mejor que una arquitectura compleja y "moderna". Vamos a ver datos de rendimiento y seguridad que respaldan por qué elegimos este camino.

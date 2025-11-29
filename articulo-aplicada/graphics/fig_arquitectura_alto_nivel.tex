@@ -1,0 +1,29 @@
+\begin{tikzpicture}[
+    every node/.append style={font=\small},
+    node distance=3cm and 3cm, % Aumentado para evitar solapamiento
+    auto,
+    block/.style={rectangle, draw=black, thick, fill=white, text width=3.5cm, align=center, minimum height=1.5cm, rounded corners},
+    container/.style={rectangle, draw=black!60, dashed, fill=gray!5, inner sep=0.5cm, rounded corners},
+    cloud/.style={cloud, draw=black, thick, fill=blue!5, aspect=2, minimum width=3cm, minimum height=1.5cm}
+]
+    % Nodos
+    \node[block, fill=green!10] (client) {\textbf{Cliente Web/Móvil} \\ (Browser / App)};
+    
+    % Contenedor Docker
+    \node[block, right=of client, fill=blue!10] (api) {\textbf{GESCOMPH API} \\ (.NET 8 Container)};
+    \node[block, below=of api, fill=orange!10] (db) {\textbf{SQL Server} \\ (Database Container)};
+    
+    % Servicios Externos
+    \node[block, right=of api, fill=red!10] (external) {\textbf{MercadoPago} \\ (Pasarela de Pagos)};
+
+    % Contenedor lógico (Docker Host)
+    \begin{scope}[on background layer]
+        \node[container, fit=(api) (db), label=above:\textbf{Docker Host / Cloud Infrastructure}] (host) {};
+    \end{scope}
+
+    % Flechas
+    \draw[thick, <->, >=stealth] (client) -- node[above, font=\scriptsize] {HTTPS / JWT} (api);
+    \draw[thick, <->, >=stealth] (api) -- node[right, font=\scriptsize] {EF Core / TCP} (db);
+    \draw[thick, <->, >=stealth] (api) -- node[above, font=\scriptsize] {REST API} (external);
+
+\end{tikzpicture}

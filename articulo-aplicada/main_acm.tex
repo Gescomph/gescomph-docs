@@ -1,0 +1,43 @@
+\documentclass[sigconf,nonacm,natbib=false]{acmart}
+
+\input{includes/preamble_common}
+\input{includes/preamble_acm}
+
+\AtBeginDocument{\providecommand\BibTeX{{\sc Bib}\TeX}}
+
+\title[GESCOMPH]{GESCOMPH: Un Monolito Modular para Modernizar la Gestión Contractual en el Sector Público}
+
+\author{Brayan Santiago Guerrero Mendez}
+\affiliation{%
+  \institution{SENA}
+  \city{Niva}
+  \country{Colombia}}
+\email{brayans_guerrero@soy.sena.edu.co}
+
+
+\begin{abstract}
+\input{sections/00_abstract}
+\end{abstract}
+
+\keywords{buenas prácticas, ingeniería de software, investigación aplicada, reproducibilidad}
+
+\begin{document}
+\maketitle
+
+\input{sections/01_introduccion}
+\input{sections/02_relacionados}
+\input{sections/03_metodologia}
+\input{sections/04_implementacion}
+\input{sections/04b_frontend_testing}
+\input{sections/04c_devops_performance}
+\input{sections/04d_contract_lifecycle}
+\input{sections/04e_data_migrations}
+\input{sections/04f_payments_integration}
+\input{sections/05_resultados}
+\input{sections/06_discusion}
+\input{sections/07_conclusiones}
+\input{sections/A1_apendices}
+
+\printbibliography
+
+\end{document}

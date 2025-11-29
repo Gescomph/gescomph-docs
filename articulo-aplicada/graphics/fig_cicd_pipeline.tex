@@ -1,0 +1,51 @@
+\begin{tikzpicture}[
+    every node/.append style={font=\small},
+    node distance=1.2cm and 1.2cm,
+    auto,
+    block/.style={
+        rectangle,
+        draw=black,
+        thick,
+        fill=white,
+        text width=2.5cm,
+        align=center,
+        rounded corners,
+        minimum height=1cm,
+        drop shadow
+    },
+    line/.style={
+        draw,
+        thick,
+        -latex',
+        shorten >=2pt
+    },
+    cloud/.style={
+        draw,
+        ellipse,
+        fill=blue!10,
+        node distance=3cm,
+        minimum height=2em
+    }
+]
+
+    % Nodos
+    \node[block, fill=green!10] (dev) {Developer\\(Commit)};
+    \node[block, fill=gray!10, right=of dev] (repo) {Git Repository\\(Version Control)};
+    \node[block, fill=orange!10, right=of repo] (build) {Build Server\\(CI Pipeline)};
+    \node[block, fill=yellow!10, below=of build] (tests) {Unit Tests\\(xUnit)};
+    \node[block, fill=blue!10, left=of tests] (docker) {Docker Build\\(Image Creation)};
+    \node[block, fill=purple!10, left=of docker] (registry) {Container Registry\\(Artifacts)};
+    \node[block, fill=red!10, below=of registry] (deploy) {Production\\(Docker Compose)};
+
+    % Conexiones
+    \draw[line] (dev) -- (repo);
+    \draw[line] (repo) -- (build);
+    \draw[line] (build) -- (tests);
+    \draw[line] (tests) -- node[above, font=\footnotesize] {Pass} (docker);
+    \draw[line] (docker) -- (registry);
+    \draw[line] (registry) -- (deploy);
+
+    % Feedback loops
+    \draw[line, dashed, red] (tests.east) -- ++(0.5,0) |- node[near start, right, font=\footnotesize] {Fail} (dev.south);
+
+\end{tikzpicture}

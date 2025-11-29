@@ -1,0 +1,71 @@
+\section{Metodología}
+\label{sec:metodologia}
+
+Para hacer este proyecto no quisimos complicarnos la vida inventando la rueda, pero tampoco queríamos hacer algo que se rompiera a los dos días. Lo que hicimos fue tomar un enfoque práctico. Sabemos que en el sector público las cosas cambian mucho —las leyes, las normas, la gente—, así que el sistema tenía que ser capaz de aguantar esos cambios sin desmoronarse.
+
+Nos centramos en tres puntos clave para que esto saliera bien: organizar el código de forma lógica (arquitectura), tener una rutina de trabajo que no fuera caótica y elegir tecnologías que no nos dieran dolores de cabeza.
+
+\subsection{La Arquitectura (Clean Architecture)}
+Al principio dudamos si usar una arquitectura tan estructurada como la \textit{Clean Architecture}, pero al final decidimos que sí valía la pena. La razón es simple: queríamos proteger la lógica del negocio.
+
+Dividimos el proyecto en capas, parecido a una cebolla:
+\begin{itemize}
+    \item En el centro pusimos las \textbf{Entidades} y la \textbf{Lógica}. Aquí está lo importante, como las reglas de los contratos. Esta parte es "pura", no toca ni la base de datos ni la web.
+    \item Alrededor pusimos los \textbf{Adaptadores}. Aquí es donde transformamos los datos para que entren y salgan del sistema.
+    \item Y afuera del todo dejamos los \textbf{Frameworks} y la base de datos.
+\end{itemize}
+
+Haciendo esto, si mañana queremos cambiar SQL Server por otra cosa, no tenemos que reescribir todo el programa, solo la capa de afuera. Es un poco más de trabajo al inicio, pero nos ahorra problemas después, evitando esa "deuda técnica" que menciona Toledo \cite{architectural_debt_toledo}.
+
+\subsection{Cómo trabajamos (Desarrollo)}
+No hicimos todo el código de una sola vez. Fuimos avanzando poco a poco, en ciclos cortos, para ir probando que las cosas funcionaran.
+
+También tratamos de usar TDD (hacer las pruebas antes que el código). Siendo honestos, no lo aplicamos en el 100\% del proyecto porque a veces no daba tiempo, pero sí lo usamos en las partes más críticas para asegurarnos de que los cálculos y validaciones estuvieran bien, algo que recomiendan Dhandapani \cite{automation_testing_dhandapani}.
+
+Otra cosa que nos ayudó mucho fue configurar el CI/CD. Básicamente, cada vez que guardábamos cambios en el repositorio, un sistema automático revisaba que no hubiéramos roto nada. Eso nos dio mucha tranquilidad a la hora de avanzar y evitar errores tontos \cite{integrating_cybersecurity_manikyala}.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{\linewidth}{!}{\input{graphics/fig_cicd_pipeline}}
+    \caption{Flujo de Integración y Despliegue Continuo (CI/CD). Se ilustra el ciclo desde el commit del desarrollador hasta el despliegue en producción mediante contenedores.}
+    \label{fig:cicd_pipeline}
+\end{figure}
+
+Para la orquestación de contenedores en el entorno de producción, utilizamos \textbf{Docker Compose}. Esta herramienta nos permite definir la infraestructura como código, asegurando que la configuración del servidor sea idéntica a la del entorno de desarrollo, eliminando los problemas de "funciona en mi máquina". A continuación se presenta la configuración utilizada para el servicio de API en producción:
+
+\begin{lstlisting}[language=yaml, caption={Configuración de Despliegue (docker-compose.yml). Se define el servicio de API con reinicio automático y aislamiento de red.}, label={lst:docker_compose}]
+version: "3.8"
+
+services:
+  # API principal - PROD
+  gescomph-api-prod:
+    container_name: gescomph-api-prod
+    build:
+      context: ../..
+      dockerfile: WebGESCOMPH/Dockerfile
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "5103:8080"
+    networks:
+      - gescomph_network
+    labels:
+      - com.gescomph.environment=prod
+
+networks:
+  gescomph_network:
+    external: true
+\end{lstlisting}
+
+\subsection{Qué tecnologías usamos}
+Para las herramientas, nos fuimos por lo seguro. No usamos lo último que salió ayer, sino cosas que sabemos que funcionan bien y tienen mucha documentación en internet.
+
+\begin{itemize}
+    \item \textbf{Backend:} Usamos \textbf{.NET 6 con C\#}. Es rápido y el compilador te avisa si cometes errores de tipos, lo cual ayuda mucho a no meter la pata.
+    \item \textbf{Datos:} Usamos \textbf{SQL Server} porque es robusto y ampliamente soportado. Para conectarnos desde el código usamos \textbf{Entity Framework Core}, que facilita mucho las cosas al no tener que escribir SQL a mano todo el tiempo.
+    \item \textbf{Docker:} Esto fue vital. Usamos contenedores para que la aplicación corra igual en mi PC que en el servidor. Se acabó la típica excusa de "en mi máquina funcionaba".
+    \item \textbf{Seguridad:} Implementamos \textbf{JWT}. Es un estándar para manejar sesiones de forma segura sin sobrecargar el servidor, algo necesario hoy en día.
+\end{itemize}
+
+En resumen, usamos herramientas estándar y una arquitectura ordenada para intentar hacer un software que parezca profesional y que dure.

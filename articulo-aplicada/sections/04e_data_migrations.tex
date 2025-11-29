@@ -1,0 +1,24 @@
+\section{Evolución del Esquema de Datos}
+\label{sec:data_migrations}
+
+En un sistema vivo como GESCOMPH, el esquema de la base de datos cambia constantemente. Para gestionar esta evolución sin recurrir a scripts SQL manuales propensos a errores, adoptamos el enfoque \textit{Code-First} con **Entity Framework Core Migrations**.
+
+\subsection{Flujo de Migraciones Controlado}
+Cada cambio en el modelo de dominio (e.g., añadir un campo a \texttt{Contract}) se traduce automáticamente en una migración versionada. Este proceso garantiza que el código C\# y la base de datos SQL Server estén siempre sincronizados.
+
+\begin{lstlisting}[style=csharp, caption={Aplicación de Migraciones al Inicio. El sistema verifica y aplica cambios pendientes automáticamente en entornos no productivos.}, label={lst:migration_apply}]
+public static void ApplyMigrations(this IApplicationBuilder app)
+{
+    using var scope = app.ApplicationServices.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    
+    if (db.Database.GetPendingMigrations().Any())
+    {
+        // En producción, esto se haría via CI/CD pipeline
+        // para evitar bloqueos de tabla durante el arranque.
+        db.Database.Migrate();
+    }
+}
+\end{lstlisting}
+
+Esta estrategia nos permite desplegar nuevas versiones de la aplicación con la certeza de que la estructura de datos subyacente es compatible, eliminando la "desviación de configuración" (\textit{configuration drift}) típica de los despliegues manuales.

@@ -1,0 +1,35 @@
+\section{Integración Financiera y Webhooks}
+\label{sec:payments_integration}
+
+La capacidad de procesar pagos de manera autónoma es el corazón transaccional de GESCOMPH. La integración con la pasarela de pagos (MercadoPago) no se limita a redirigir al usuario; implica un sistema robusto de conciliación asíncrona mediante Webhooks.
+
+\subsection{Manejo Idempotente de Notificaciones}
+Las pasarelas de pago garantizan la entrega de notificaciones (IPN) mediante reintentos, lo que significa que nuestra API puede recibir el mismo evento de "Pago Aprobado" múltiples veces. Para evitar duplicar el saldo a favor del contrato, implementamos un patrón de idempotencia estricto.
+
+\begin{lstlisting}[style=csharp, caption={Controlador de Webhook. Se procesa la notificación de manera asíncrona y se garantiza la idempotencia.}, label={lst:webhook_controller}]
+[HttpPost("webhook")]
+public async Task<IActionResult> ReceiveNotification([FromBody] PaymentNotificationDto notification)
+{
+    // 1. Validación de origen (Firma HMAC)
+    if (!IsValidSignature(Request.Headers["X-Signature"]))
+        return Unauthorized();
+
+    // 2. Verificación de Idempotencia
+    if (await _paymentRepo.ExistsAsync(notification.Id))
+        return Ok(); // Ya procesado, responder 200 para detener reintentos
+
+    // 3. Procesamiento Transaccional
+    try 
+    {
+        await _paymentService.ProcessPaymentAsync(notification.Id);
+        return Ok();
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Error procesando pago {Id}", notification.Id);
+        return StatusCode(500); // Forzar reintento de la pasarela
+    }
+}
+\end{lstlisting}
+
+Este diseño desacopla la experiencia del usuario (que puede cerrar el navegador inmediatamente después de pagar) de la confirmación contable, que ocurre en segundo plano garantizando la consistencia eventual del sistema financiero municipal.

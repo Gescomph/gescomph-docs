@@ -1,0 +1,78 @@
+\section{Arquitectura Frontend y Estrategia de Calidad}
+\label{sec:frontend_testing}
+
+Aunque el enfoque principal de este artículo ha sido la arquitectura backend, la experiencia del usuario final y la fiabilidad del sistema dependen intrínsecamente de un cliente web robusto y una estrategia de pruebas exhaustiva.
+
+\subsection{Desacoplamiento en la Capa de Presentación (React)}
+Para la interfaz de usuario, optamos por una \textit{Single Page Application} (SPA) construida con **React 18** y **TypeScript**. Esta elección no fue arbitraria; el tip ado estático de TypeScript actúa como una primera línea de defensa contra errores de integración, compartiendo definiciones de DTOs con el backend mediante generación de código.
+
+\subsubsection{Gestión de Estado sin Redux}
+A diferencia de tendencias pasadas que abogaban por stores globales complejos (Redux), GESCOMPH utiliza una gestión de estado descentralizada basada en **React Context API** y **Hooks personalizados**. Cada módulo funcional (e.g., Contratos) expone su propio contexto, lo que reduce el tamaño del bundle inicial y mejora el rendimiento de carga.
+
+\begin{lstlisting}[language=C, caption={Hook personalizado para consumo de API. Encapsula la lógica de petición y manejo de errores.}, label={lst:react_hook}]
+export const useContract = () => {
+  const [loading, setLoading] = useState(false);
+  const { token } = useAuth();
+
+  const createContract = async (data: ContractDTO) => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/contract`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (!response.ok) throw new Error('Error en creación');
+      return await response.json();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { createContract, loading };
+};
+\end{lstlisting}
+
+\subsection{Estrategia de Aseguramiento de Calidad (QA)}
+La estabilidad del Monolito Modular se garantiza mediante una pirámide de pruebas invertida, priorizando pruebas de integración rápidas sobre pruebas unitarias aisladas excesivamente mockeadas.
+
+\subsubsection{Pruebas Unitarias (xUnit)}
+Utilizamos **xUnit** para validar la lógica de negocio pura en la capa \texttt{GESCOMPH.Business}. Al no tener dependencias de infraestructura, estas pruebas se ejecutan en milisegundos.
+
+\subsubsection{Pruebas de Integración (WebApplicationFactory)}
+Para validar el flujo completo (Controller $\rightarrow$ Service $\rightarrow$ Repository $\rightarrow$ DB), empleamos \texttt{WebApplicationFactory} de ASP.NET Core. Esto levanta una instancia de la API en memoria y utiliza una base de datos SQL Server real (en contenedor Docker efímero) para asegurar que las consultas EF Core funcionan contra el motor real, evitando los falsos positivos comunes de las bases de datos en memoria (In-Memory DB).
+
+\begin{lstlisting}[style=csharp, caption={Prueba de Integración con Base de Datos Real. Se valida el flujo completo de creación de contrato.}, label={lst:integration_test}]
+public class ContractIntegrationTests : IClassFixture<CustomWebApplicationFactory>
+{
+    private readonly HttpClient _client;
+
+    public ContractIntegrationTests(CustomWebApplicationFactory factory)
+    {
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    public async Task CreateContract_ReturnsCreated_WhenDataIsValid()
+    {
+        // Arrange
+        var token = await GetAuthTokenAsync();
+        _client.DefaultRequestHeaders.Authorization = 
+            new AuthenticationHeaderValue("Bearer", token);
+            
+        var payload = new ContractCreateDto { /* ... */ };
+
+        // Act
+        var response = await _client.PostAsJsonAsync("/api/contract", payload);
+
+        // Assert
+        response.EnsureSuccessStatusCode();
+        var contract = await response.Content.ReadFromJsonAsync<ContractSelectDto>();
+        Assert.True(contract.Id > 0);
+    }
+}
+\end{lstlisting}

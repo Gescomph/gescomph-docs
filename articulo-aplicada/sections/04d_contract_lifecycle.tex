@@ -1,0 +1,37 @@
+\section{Ciclo de Vida del Contrato y Reglas de Negocio}
+\label{sec:contract_lifecycle}
+
+La complejidad central de GESCOMPH no reside en el volumen de datos, sino en la integridad del estado de los contratos públicos. Un contrato no es una entidad estática; es un documento vivo que atraviesa múltiples estados legales, cada uno con reglas de transición estrictas.
+
+\subsection{Modelado de Estados}
+Para gestionar esta complejidad, implementamos una máquina de estados finitos dentro del dominio. La Figura \ref{fig:estados_contrato} ilustra los estados posibles y las transiciones permitidas.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.8\linewidth}{!}{\input{graphics/fig_estados_contrato}}
+    \caption{Diagrama de Estados del Contrato. Las transiciones están protegidas por validaciones de negocio que impiden estados ilegales (e.g., no se puede liquidar un contrato con deuda).}
+    \label{fig:estados_contrato}
+\end{figure}
+
+\subsection{Validación de Invariantes}
+El patrón \textit{Domain-Driven Design} (DDD) nos guía para encapsular estas reglas dentro de la entidad \texttt{Contract}. No permitimos que servicios externos modifiquen el estado directamente (los setters son privados); en su lugar, exponemos métodos de comportamiento que validan las invariantes antes de aplicar el cambio.
+
+\begin{lstlisting}[style=csharp, caption={Método de Dominio para Liquidación. Se observa la protección de invariantes antes de cambiar el estado.}, label={lst:contract_liquidation}]
+public void Liquidate(DateTime liquidationDate)
+{
+    if (State != ContractState.Active)
+        throw new DomainException("Solo contratos activos pueden liquidarse.");
+
+    if (Balance > 0)
+        throw new DomainException("No se puede liquidar con deuda pendiente.");
+
+    if (liquidationDate < StartDate)
+        throw new DomainException("Fecha de liquidación inválida.");
+
+    State = ContractState.Liquidated;
+    EndDate = liquidationDate;
+    AddDomainEvent(new ContractLiquidatedEvent(this));
+}
+\end{lstlisting}
+
+Esta encapsulación garantiza que, sin importar desde dónde se invoque la operación (API, tarea en segundo plano, script de migración), el contrato nunca quedará en un estado inconsistente. Es una defensa proactiva contra la corrupción de datos, crítica en sistemas donde hay dinero público involucrado.

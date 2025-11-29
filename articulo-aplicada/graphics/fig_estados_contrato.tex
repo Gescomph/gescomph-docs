@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+    every node/.append style={font=\small},
+    node distance=2.5cm,
+    auto,
+    state/.style={circle, draw=black, thick, fill=blue!5, text width=2cm, align=center, minimum size=2cm},
+    initial/.style={circle, draw=black, thick, fill=green!10, text width=2cm, align=center, minimum size=2cm},
+    final/.style={circle, draw=black, thick, fill=red!10, text width=2cm, align=center, minimum size=2cm}
+]
+
+    % Estados
+    \node[initial] (draft) {\textbf{Borrador} \\ (Draft)};
+    \node[state, right=of draft] (active) {\textbf{Activo} \\ (Active)};
+    \node[state, below=of active] (suspended) {\textbf{Suspendido} \\ (Suspended)};
+    \node[final, right=of active] (liquidated) {\textbf{Liquidado} \\ (Liquidated)};
+    \node[final, below=of liquidated] (cancelled) {\textbf{Anulado} \\ (Cancelled)};
+
+    % Transiciones
+    \draw[thick, ->, >=stealth] (draft) -- node[above, font=\scriptsize] {Aprobar} (active);
+    \draw[thick, ->, >=stealth] (draft) -- node[below left, font=\scriptsize] {Cancelar} (cancelled);
+    
+    \draw[thick, ->, >=stealth] (active) -- node[above, font=\scriptsize] {Finalizar Plazo} (liquidated);
+    \draw[thick, ->, >=stealth] (active) -- node[right, font=\scriptsize] {Incumplimiento} (suspended);
+    \draw[thick, ->, >=stealth] (suspended) -- node[left, font=\scriptsize] {Subsanar} (active);
+    \draw[thick, ->, >=stealth] (suspended) -- node[below, font=\scriptsize] {Rescindir} (cancelled);
+
+\end{tikzpicture}

@@ -1,0 +1,147 @@
+\appendix
+
+\section{Esquema de Base de Datos Relacional}
+\label{app:db_schema}
+
+El modelo de datos de GESCOMPH se ha diseñado siguiendo la tercera forma normal (3NF) para garantizar la integridad referencial. A continuación se describen las entidades principales y sus relaciones:
+
+\begin{description}
+    \item[Contract (Contrato):] Entidad central del sistema.
+    \begin{itemize}
+        \item \texttt{Id (PK, int)}: Identificador único.
+        \item \texttt{PersonId (FK, int)}: Referencia al arrendatario.
+        \item \texttt{TotalBaseRentAgreed (decimal)}: Valor del canon pactado.
+        \item \texttt{Active (bool)}: Estado del contrato.
+        \item \texttt{StartDate / EndDate (datetime)}: Vigencia.
+    \end{itemize}
+
+    \item[Establishment (Establecimiento):] Unidad física arrendable.
+    \begin{itemize}
+        \item \texttt{Id (PK, int)}: Identificador único.
+        \item \texttt{PlazaId (FK, int)}: Ubicación macro.
+        \item \texttt{RentValueBase (decimal)}: Valor base del canon.
+        \item \texttt{Active (bool)}: Disponibilidad.
+    \end{itemize}
+
+    \item[PremisesLeased (Locales Arrendados):] Tabla de relación N:M.
+    \begin{itemize}
+        \item \texttt{ContractId (FK, int)}
+        \item \texttt{EstablishmentId (FK, int)}
+    \end{itemize}
+
+    \item[User (Usuario):] Autenticación y roles.
+    \begin{itemize}
+        \item \texttt{Id (PK, int)}
+        \item \texttt{Email (varchar)}
+        \item \texttt{PasswordHash (varchar)}
+        \item \texttt{PersonId (FK, int, nullable)}
+    \end{itemize}
+
+    \item[AuditLog (Auditoría):] Registro inmutable.
+    \begin{itemize}
+        \item \texttt{Id (PK, long)}
+        \item \texttt{TableName (varchar)}
+        \item \texttt{Action (varchar)}
+        \item \texttt{OldValues (jsonb)}
+        \item \texttt{NewValues (jsonb)}
+        \item \texttt{ChangedBy (varchar)}
+        \item \texttt{ChangedAt (datetime)}
+    \end{itemize}
+
+    \item[PaymentTransaction (Transacciones):] Procesos financieros.
+    \begin{itemize}
+        \item \texttt{Id (PK, guid)}
+        \item \texttt{ContractId (FK, int)}
+        \item \texttt{Amount (decimal)}
+        \item \texttt{Status (varchar)}
+        \item \texttt{ProviderReference (varchar)}
+        \item \texttt{PaymentDate (datetime)}
+    \end{itemize}
+\end{description}
+
+%--------------------------------------------------------------------
+
+\section{Especificación de API REST (Ejemplos)}
+\label{app:api_docs}
+
+\subsection{Creación de Contrato (POST /api/contract)}
+
+\begin{lstlisting}[language=json, caption={Payload JSON para la creación de un contrato.}, label={lst:json_contract_create}]
+{
+  "personId": 1054,
+  "startDate": "2023-01-01T00:00:00Z",
+  "endDate": "2023-12-31T23:59:59Z",
+  "establishmentIds": [ 12, 14 ],
+  "clauseIds": [ 1, 2, 5 ],
+  "observations": "Contrato renovado con adición presupuestal."
+}
+\end{lstlisting}
+
+\subsection{Respuesta Exitosa (201 Created)}
+
+\begin{lstlisting}[language=json, caption={Respuesta JSON tras la creación exitosa.}, label={lst:json_contract_response}]
+{
+  "id": 2045,
+  "fullName": "Juan Perez",
+  "totalBaseRentAgreed": 1500000.00,
+  "active": true,
+  "createdAt": "2023-10-27T10:30:00Z"
+}
+\end{lstlisting}
+
+%--------------------------------------------------------------------
+
+\section{Estructura del Proyecto (.NET Solution)}
+\label{app:project_structure}
+
+\begin{verbatim}
+GESCOMPH.sln
+|-- GESCOMPH.Entity (Core)
+|   |-- Domain
+|   |   |-- Models
+|   |   |   |-- Contract.cs
+|   |   |   |-- Establishment.cs
+|   |-- DTOs
+|       |-- ContractCreateDto.cs
+|
+|-- GESCOMPH.Business (Logic)
+|   |-- Interfaces
+|   |   |-- IContractService.cs
+|   |-- Services
+|       |-- ContractService.cs
+|       |-- TokenBusiness.cs
+|
+|-- GESCOMPH.Data (Infrastructure)
+|   |-- Context
+|   |   |-- ApplicationDbContext.cs
+|   |-- Services
+|       |-- ContractRepository.cs
+|
+|-- GESCOMPH.WebGESCOMPH (Presentation)
+    |-- Controllers
+    |   |-- ContractController.cs
+    |-- Program.cs
+    |-- appsettings.json
+\end{verbatim}
+
+%--------------------------------------------------------------------
+
+\section{Configuración del Entorno}
+\label{app:env_vars}
+
+\begin{table}[H]
+    \centering
+    \caption{Variables de Entorno Críticas}
+    \label{tab:env_vars}
+    \resizebox{\linewidth}{!}{%
+        \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Variable} & \textbf{Descripción} & \textbf{Ejemplo (Oculto)} \\ \midrule
+        \texttt{ConnectionStrings\_\_Default} & Cadena de conexión SQL Server & \texttt{Server=db;Database=ges...} \\
+        \texttt{JwtSettings\_\_Key} & Clave secreta para tokens & \texttt{[REDACTED\_256\_BIT\_KEY]} \\
+        \texttt{JwtSettings\_\_Issuer} & Emisor del token & \texttt{gescomph-api} \\
+        \texttt{MercadoPago\_\_AccessToken} & Token de pagos & \texttt{TEST-8493...} \\ 
+        \texttt{ASPNETCORE\_ENVIRONMENT} & Entorno de ejecución & \texttt{Production} \\ \bottomrule
+        \end{tabular}
+    }% ← cierre correcto de resizebox
+\end{table}

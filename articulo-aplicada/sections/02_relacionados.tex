@@ -1,0 +1,52 @@
+\section{Marco teórico y trabajos relacionados}
+\label{sec:relacionados}
+
+La ingeniería de software vive en un péndulo constante. Hace unos años, todo era consolidar; hoy, la norma parece ser distribuir. Sin embargo, adoptar microservicios solo porque "es lo moderno" es una receta para el desastre. En esta sección, no vamos a hacer un listado aburrido de papers; vamos a analizar qué dice realmente la evidencia sobre cuándo y cómo conviene romper un sistema, y cómo eso justifica la arquitectura de GESCOMPH.
+
+\subsection{El dilema: ¿Monolito o Microservicios?}
+Es fácil dejarse llevar por el éxito de gigantes como Netflix, cuyo viaje hacia los microservicios está muy bien documentado \cite{architectural_evolution_netflix_patlolla}. Pero hay que leer la letra pequeña. Mazzara et al. \cite{migration_monolith_mazzara} y Blinowski \cite{monolithic_vs_microservices_blinowski} ponen los pies en la tierra: si bien ganas escalabilidad, el precio a pagar en complejidad operativa es altísimo. No es una mejora automática; es un intercambio de problemas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{graphics/interfaz_gescomph.jpg}
+    \caption{Comparativa conceptual entre Monolito y Microservicios. Se ilustra la complejidad operativa frente a la simplicidad de despliegue.}
+    \label{fig:concepto_monolito_vs_micro}
+\end{figure}
+
+Para un proyecto académico como GESCOMPH, diseñado para explorar arquitecturas pragmáticas en contextos gubernamentales, la literatura sugiere prudencia. Velepucha y Flores \cite{survey_microservices_velepucha} advierten sobre los desafíos de migrar sin una estrategia clara. Por eso, nuestra apuesta por un diseño modular no es timidez, es una decisión pedagógica: demostrar que se puede preparar el terreno para escalar sin adoptar prematuramente la complejidad de sistemas distribuidos.
+
+\subsection{No es solo código, es diseño}
+De nada sirve tener microservicios si por dentro son un desastre. Nivedhaa \cite{software_architecture_evolution_nivedhaa} y Oyeniran \cite{microservices_cloud_native_oyeniran} recalcan que la arquitectura debe evolucionar con el negocio, no al revés. Aquí es donde brilla el \textit{Domain-Driven Design} (DDD). Myllynen et al. \cite{developing_conceptual_model_myllynen} muestran cómo modelar los límites del sistema basándose en el dominio real y no en tablas de base de datos es lo que realmente permite desacoplar componentes.
+
+En GESCOMPH, tomamos esto muy en serio. No separamos clases por capricho técnico, sino siguiendo los límites del negocio de gestión contractual.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{graphics/interfaz_gescomph_3.jpg}
+    \caption{Modelado de dominios en arquitecturas modernas. La estructura del código debe reflejar los límites del negocio (DDD).}
+    \label{fig:concepto_ddd}
+\end{figure}
+
+\subsection{Seguridad: Más piezas, más problemas}
+Cuando rompes un monolito, multiplicas tu superficie de ataque. De repente, llamadas que eran internas ahora viajan por la red. Billawa et al. \cite{sok_security_billawa} lo dejan claro: la seguridad en sistemas distribuidos no puede ser un pensamiento secundario. Requiere una gestión de identidad robusta y observabilidad total.
+
+No basta con poner un firewall. Kothapalli \cite{securing_microservices_kothapalli} y Cruz-Cunha \cite{security_microservices_cruz_cunha} insisten en la defensa en profundidad. Incluso se habla ya de "resiliencia cibernética predictiva" usando IA \cite{predictive_cyber_resilience_konakanchi}, aunque para nuestro alcance actual, nos centramos en lo fundamental y efectivo: una implementación sólida de JWT y RBAC que no deje brechas, siguiendo las recomendaciones de Patlolla \cite{enhancing_security_patlolla} sobre monitoreo constante.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{graphics/interfaz_gescomph_2.jpg}
+    \caption{Desafíos de seguridad en entornos distribuidos. La superficie de ataque aumenta exponencialmente con la fragmentación de servicios.}
+    \label{fig:concepto_seguridad}
+\end{figure}
+
+\subsection{La deuda técnica que no se ve}
+A veces, la peor deuda no es el código feo, es la mala arquitectura. Toledo et al. \cite{architectural_debt_toledo} explican cómo las decisiones tomadas bajo presión se calcifican y hacen que el sistema sea imposible de mantener años después.
+
+GESCOMPH nace con la obsesión de evitar esto. Al usar \textit{Clean Architecture}, estamos pagando una "prima de seguro" inicial: escribimos más código ahora y separamos más capas de las que parecen necesarias, para que en el futuro, cuando cambien los requisitos (y cambiarán), el sistema no colapse bajo su propio peso.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{graphics/interfaz_gescomph_4.jpg}
+    \caption{Impacto de la deuda técnica arquitectónica. Las decisiones tempranas de diseño determinan la mantenibilidad a largo plazo.}
+    \label{fig:concepto_deuda_tecnica}
+\end{figure}

@@ -1,0 +1,774 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{sok_security_billawa}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=3b5d1f1808cac4f13feba097a9196f12}{%
+           family={Billawa},
+           familyi={B\bibinitperiod},
+           given={Priyanka},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b82eb47462abb1b63640c1bad8a1b044}{%
+           family={Tukaram},
+           familyi={T\bibinitperiod},
+           given={Anusha\bibnamedelima Bambhore},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=41172b951d6ff7dda3d1197291c43489}{%
+           family={Ferreyra},
+           familyi={F\bibinitperiod},
+           given={Nicolás\bibnamedelimb E.\bibnamedelimi Díaz},
+           giveni={N\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2629d49c456ef21b188b491c841f5307}{%
+           family={Steghöfer},
+           familyi={S\bibinitperiod},
+           given={Jan-Philipp},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=7d958b0f3c66c874d46d0ae9b75b6d5d}{%
+           family={Scandariato},
+           familyi={S\bibinitperiod},
+           given={Riccardo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d858e6e08115d975f3fd48f614ec1ca4}{%
+           family={Simhandl},
+           familyi={S\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{df8f68902e4b2a448bd7d6aa31a3d8aa}
+      \strng{fullhash}{ad5a4d451a5225cc45d39b7eb5a9d791}
+      \strng{fullhashraw}{ad5a4d451a5225cc45d39b7eb5a9d791}
+      \strng{bibnamehash}{df8f68902e4b2a448bd7d6aa31a3d8aa}
+      \strng{authorbibnamehash}{df8f68902e4b2a448bd7d6aa31a3d8aa}
+      \strng{authornamehash}{df8f68902e4b2a448bd7d6aa31a3d8aa}
+      \strng{authorfullhash}{ad5a4d451a5225cc45d39b7eb5a9d791}
+      \strng{authorfullhashraw}{ad5a4d451a5225cc45d39b7eb5a9d791}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2202.01612}
+      \field{title}{SoK: Security of Microservice Applications: A Practitioners’ Perspective on Challenges and Best Practices}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://arxiv.org/pdf/2202.01612
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/pdf/2202.01612
+      \endverb
+    \endentry
+    \entry{monolithic_vs_microservices_blinowski}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e97cb85045e3507fd3655c422487d17c}{%
+           family={Blinowski},
+           familyi={B\bibinitperiod},
+           given={Grzegorz\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=b52b1becb70383aa456df2261ba629ad}{%
+           family={Ojdowska},
+           familyi={O\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5eb6c3eaafc04535852773f48d21253e}{%
+           family={Przybyłek},
+           familyi={P\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{fullhash}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{fullhashraw}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{bibnamehash}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{authorbibnamehash}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{authornamehash}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{authorfullhash}{776db849f3fd0667aacb59ced61bcedd}
+      \strng{authorfullhashraw}{776db849f3fd0667aacb59ced61bcedd}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Monolithic vs. Microservice Architecture: A Performance and Scalability Evaluation}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/abstract/document/9717259/metrics
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/abstract/document/9717259/metrics
+      \endverb
+    \endentry
+    \entry{security_microservices_cruz_cunha}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=076e674f455f56eb8d53338593f61d79}{%
+           family={Cruz-Cunha},
+           familyi={C\bibinithyphendelim C\bibinitperiod},
+           given={Maria\bibnamedelima Manuela},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=59faa2dd2624879487209185297d5934}{%
+           family={Mateus-Coelho},
+           familyi={M\bibinithyphendelim C\bibinitperiod},
+           given={Nuno},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c1b0250565050c6f94ca783381c5618}
+      \strng{fullhash}{6c1b0250565050c6f94ca783381c5618}
+      \strng{fullhashraw}{6c1b0250565050c6f94ca783381c5618}
+      \strng{bibnamehash}{6c1b0250565050c6f94ca783381c5618}
+      \strng{authorbibnamehash}{6c1b0250565050c6f94ca783381c5618}
+      \strng{authornamehash}{6c1b0250565050c6f94ca783381c5618}
+      \strng{authorfullhash}{6c1b0250565050c6f94ca783381c5618}
+      \strng{authorfullhashraw}{6c1b0250565050c6f94ca783381c5618}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Procedia Computer Science}
+      \field{title}{Security in Microservices Architectures}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://pdf.sciencedirectassets.com/280203/1-s2.0-S1877050921X0004X/1-s2.0-S1877050921003719/main.pdf
+      \endverb
+      \verb{url}
+      \verb https://pdf.sciencedirectassets.com/280203/1-s2.0-S1877050921X0004X/1-s2.0-S1877050921003719/main.pdf
+      \endverb
+    \endentry
+    \entry{automation_testing_dhandapani}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e4252cf52fb9b4fd3ae394ab63098674}{%
+           family={Dhandapani},
+           familyi={D\bibinitperiod},
+           given={Aswinkumar},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{fullhash}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{fullhashraw}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{bibnamehash}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{authorbibnamehash}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{authornamehash}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{authorfullhash}{e4252cf52fb9b4fd3ae394ab63098674}
+      \strng{authorfullhashraw}{e4252cf52fb9b4fd3ae394ab63098674}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computer Science and Technology Studies (JCSTS)}
+      \field{title}{Automation Testing in Microservices and Cloud-Native Applications: Strategies and Innovations}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://al-kindipublishers.org/index.php/jcsts/article/view/9682
+      \endverb
+      \verb{url}
+      \verb https://al-kindipublishers.org/index.php/jcsts/article/view/9682
+      \endverb
+    \endentry
+    \entry{dynamic_adaptive_api_kaul}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3a515915ef1661b92b5502697de4c791}{%
+           family={Kaul},
+           familyi={K\bibinitperiod},
+           given={Deepak},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a515915ef1661b92b5502697de4c791}
+      \strng{fullhash}{3a515915ef1661b92b5502697de4c791}
+      \strng{fullhashraw}{3a515915ef1661b92b5502697de4c791}
+      \strng{bibnamehash}{3a515915ef1661b92b5502697de4c791}
+      \strng{authorbibnamehash}{3a515915ef1661b92b5502697de4c791}
+      \strng{authornamehash}{3a515915ef1661b92b5502697de4c791}
+      \strng{authorfullhash}{3a515915ef1661b92b5502697de4c791}
+      \strng{authorfullhashraw}{3a515915ef1661b92b5502697de4c791}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific Research and Management (IJSRM)}
+      \field{title}{Dynamic Adaptive API Security Framework Using AI-Powered Blockchain Consensus for Microservices}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://download.ssrn.com/2025/1/14/5096211.pdf
+      \endverb
+      \verb{url}
+      \verb https://download.ssrn.com/2025/1/14/5096211.pdf
+      \endverb
+    \endentry
+    \entry{predictive_cyber_resilience_konakanchi}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4f51febf8f2b2a941972b4744a162319}{%
+           family={Konakanchi},
+           familyi={K\bibinitperiod},
+           given={Sandeep},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{4f51febf8f2b2a941972b4744a162319}
+      \strng{fullhash}{4f51febf8f2b2a941972b4744a162319}
+      \strng{fullhashraw}{4f51febf8f2b2a941972b4744a162319}
+      \strng{bibnamehash}{4f51febf8f2b2a941972b4744a162319}
+      \strng{authorbibnamehash}{4f51febf8f2b2a941972b4744a162319}
+      \strng{authornamehash}{4f51febf8f2b2a941972b4744a162319}
+      \strng{authorfullhash}{4f51febf8f2b2a941972b4744a162319}
+      \strng{authorfullhashraw}{4f51febf8f2b2a941972b4744a162319}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Scientific Research in Computer Science, Engineering and Information Technology (IJSRCSEIT)}
+      \field{title}{Predictive Cyber-Resilience: AI-Powered Self-Defending Microservices for Zero-Downtime Security}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://prjcs.com/index.php/prjcs/article/view/67/68
+      \endverb
+      \verb{url}
+      \verb http://prjcs.com/index.php/prjcs/article/view/67/68
+      \endverb
+    \endentry
+    \entry{securing_microservices_kothapalli}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=39152698453838055603dc85097d5c22}{%
+           family={Kothapalli},
+           familyi={K\bibinitperiod},
+           given={Mounika},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{39152698453838055603dc85097d5c22}
+      \strng{fullhash}{39152698453838055603dc85097d5c22}
+      \strng{fullhashraw}{39152698453838055603dc85097d5c22}
+      \strng{bibnamehash}{39152698453838055603dc85097d5c22}
+      \strng{authorbibnamehash}{39152698453838055603dc85097d5c22}
+      \strng{authornamehash}{39152698453838055603dc85097d5c22}
+      \strng{authorfullhash}{39152698453838055603dc85097d5c22}
+      \strng{authorfullhashraw}{39152698453838055603dc85097d5c22}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Google Scholar}
+      \field{title}{Securing Microservices Architecture: Best Practices and Challenges}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Mounika-Kothapalli-2/publication/384076350_Securing_Microservices_Architecture_Best_Practices_and_Challenges/links/66fac862553d245f9e4503f6/Securing-Microservices-Architecture-Best-Practices-and-Challenges.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Mounika-Kothapalli-2/publication/384076350_Securing_Microservices_Architecture_Best_Practices_and_Challenges/links/66fac862553d245f9e4503f6/Securing-Microservices-Architecture-Best-Practices-and-Challenges.pdf
+      \endverb
+    \endentry
+    \entry{integrating_cybersecurity_manikyala}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=716e4e55e553f8380809c198c70ab504}{%
+           family={Manikyala},
+           familyi={M\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{716e4e55e553f8380809c198c70ab504}
+      \strng{fullhash}{716e4e55e553f8380809c198c70ab504}
+      \strng{fullhashraw}{716e4e55e553f8380809c198c70ab504}
+      \strng{bibnamehash}{716e4e55e553f8380809c198c70ab504}
+      \strng{authorbibnamehash}{716e4e55e553f8380809c198c70ab504}
+      \strng{authornamehash}{716e4e55e553f8380809c198c70ab504}
+      \strng{authorfullhash}{716e4e55e553f8380809c198c70ab504}
+      \strng{authorfullhashraw}{716e4e55e553f8380809c198c70ab504}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Google Scholar}
+      \field{title}{Integrating Cybersecurity Best Practices in DevOps Pipelines for Securing Distributed Systems}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Aditya-Manikyala/publication/385893283_Integrating_Cybersecurity_Best_Practices_in_DevOps_Pipelines_for_Securing_Distributed_Systems/links/673a195537496239b2c3585d/Integrating-Cybersecurity-Best-Practices-in-DevOps-Pipelines-for-Securing-Distributed-Systems.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Aditya-Manikyala/publication/385893283_Integrating_Cybersecurity_Best_Practices_in_DevOps_Pipelines_for_Securing_Distributed_Systems/links/673a195537496239b2c3585d/Integrating-Cybersecurity-Best-Practices-in-DevOps-Pipelines-for-Securing-Distributed-Systems.pdf
+      \endverb
+    \endentry
+    \entry{benchmarks_performance_metrics_mazzara}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=147f187ab39b8aa10377370e35dd100c}{%
+           family={Mazzara},
+           familyi={M\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8ca6f0c63154ae67ed882b01b6b80fb3}{%
+           family={Moniruzzaman},
+           familyi={M\bibinitperiod},
+           given={A.\bibnamedelimi B.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{fullhash}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{fullhashraw}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{bibnamehash}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{authorbibnamehash}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{authornamehash}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{authorfullhash}{7750f44d81dc5a28aba5c46113efb52d}
+      \strng{authorfullhashraw}{7750f44d81dc5a28aba5c46113efb52d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ResearchGate}
+      \field{title}{Benchmarks and performance metrics for assessing the migration to microservice-based architectures}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Manuel-Mazzara/publication/353324227_Migration_from_Monolith_to_Microservices_Benchmarking_a_Case_Study/links/60ff050b1e95fe241a8e66eb/Migration-from-Monolith-to-Microservices-Benchmarking-a-Case-Study.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Manuel-Mazzara/publication/353324227_Migration_from_Monolith_to_Microservices_Benchmarking_a_Case_Study/links/60ff050b1e95fe241a8e66eb/Migration-from-Monolith-to-Microservices-Benchmarking-a-Case-Study.pdf
+      \endverb
+    \endentry
+    \entry{migration_monolith_mazzara}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=147f187ab39b8aa10377370e35dd100c}{%
+           family={Mazzara},
+           familyi={M\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8ca6f0c63154ae67ed882b01b6b80fb3}{%
+           family={Moniruzzaman},
+           familyi={M\bibinitperiod},
+           given={A.\bibnamedelimi B.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=9efdc1dae1460e4929413e422f95e720}{%
+           family={Kuryazov},
+           familyi={K\bibinitperiod},
+           given={Dilshod},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{fullhash}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{fullhashraw}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{bibnamehash}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{authorbibnamehash}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{authornamehash}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{authorfullhash}{8dea4aa7c763cb415ba08938caaff04b}
+      \strng{authorfullhashraw}{8dea4aa7c763cb415ba08938caaff04b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ResearchGate}
+      \field{title}{Migration from Monolith to Microservices: Benchmarking a Case Study}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Manuel-Mazzara/publication/339749917_Migration_from_Monolith_to_Microservices_Benchmarking_a_Case_Study/links/5e6359034585153fb3c8515f/Migration-from-Monolith-to-Microservices-Benchmarking-a-Case-Study.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Manuel-Mazzara/publication/339749917_Migration_from_Monolith_to_Microservices_Benchmarking_a_Case_Study/links/5e6359034585153fb3c8515f/Migration-from-Monolith-to-Microservices-Benchmarking-a-Case-Study.pdf
+      \endverb
+    \endentry
+    \entry{developing_conceptual_model_myllynen}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=ae1670c815bf04d5663adfc9f8153427}{%
+           family={Myllynen},
+           familyi={M\bibinitperiod},
+           given={Teemu},
+           giveni={T\bibinitperiod}}}%
+        {{hash=3d51fd2d3019caee851190d7132a7ef8}{%
+           family={Kamau},
+           familyi={K\bibinitperiod},
+           given={Eunice},
+           giveni={E\bibinitperiod}}}%
+        {{hash=69e5ee343223a63135d2acffbd2fd059}{%
+           family={Mustapha},
+           familyi={M\bibinitperiod},
+           given={Sikirat\bibnamedelima Damilola},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=ef8d118e22a7542fcdb8848aa0ac132c}{%
+           family={Babatunde},
+           familyi={B\bibinitperiod},
+           given={Gideon\bibnamedelima Opeyemi},
+           giveni={G\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=82e9c4f37c4c2c8988adb07c9427485b}{%
+           family={Alabi},
+           familyi={A\bibinitperiod},
+           given={Abidemi\bibnamedelima Adeleye},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{69f697762e54d87b75beeb092e793ba4}
+      \strng{fullhash}{08dc6d68967771624e1301fa59b2ca44}
+      \strng{fullhashraw}{08dc6d68967771624e1301fa59b2ca44}
+      \strng{bibnamehash}{69f697762e54d87b75beeb092e793ba4}
+      \strng{authorbibnamehash}{69f697762e54d87b75beeb092e793ba4}
+      \strng{authornamehash}{69f697762e54d87b75beeb092e793ba4}
+      \strng{authorfullhash}{08dc6d68967771624e1301fa59b2ca44}
+      \strng{authorfullhashraw}{08dc6d68967771624e1301fa59b2ca44}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Multidisciplinary Research and Growth Evaluation}
+      \field{title}{Developing a Conceptual Model for Cross-Domain Microservices Using Event-Driven and Domain-Driven Design}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/publication/388554873_Developing_a_Conceptual_Model_for_Cross-Domain_Microservices_Using_Event-Driven_and_Domain-Driven_Design
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/publication/388554873_Developing_a_Conceptual_Model_for_Cross-Domain_Microservices_Using_Event-Driven_and_Domain-Driven_Design
+      \endverb
+    \endentry
+    \entry{software_architecture_evolution_nivedhaa}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d72e14f296610190203f7d564467634f}{%
+           family={N},
+           familyi={N\bibinitperiod},
+           given={Nivedhaa},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{d72e14f296610190203f7d564467634f}
+      \strng{fullhash}{d72e14f296610190203f7d564467634f}
+      \strng{fullhashraw}{d72e14f296610190203f7d564467634f}
+      \strng{bibnamehash}{d72e14f296610190203f7d564467634f}
+      \strng{authorbibnamehash}{d72e14f296610190203f7d564467634f}
+      \strng{authornamehash}{d72e14f296610190203f7d564467634f}
+      \strng{authorfullhash}{d72e14f296610190203f7d564467634f}
+      \strng{authorfullhashraw}{d72e14f296610190203f7d564467634f}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ResearchGate}
+      \field{title}{SOFTWARE ARCHITECTURE EVOLUTION: PATTERNS, TRENDS, AND BEST PRACTICES}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Nivedhaa-N/publication/384019495_SOFTWARE_ARCHITECTURE_EVOLUTION_PATTERNS_TRENDS_AND_BEST_PRACTICES/links/66e52757fa5e11512cb89d26/SOFTWARE-ARCHITECTURE-EVOLUTION-PATTERNS-TRENDS-AND-BEST-PRACTICES.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Nivedhaa-N/publication/384019495_SOFTWARE_ARCHITECTURE_EVOLUTION_PATTERNS_TRENDS_AND_BEST_PRACTICES/links/66e52757fa5e11512cb89d26/SOFTWARE-ARCHITECTURE-EVOLUTION-PATTERNS-TRENDS-AND-BEST-PRACTICES.pdf
+      \endverb
+    \endentry
+    \entry{chaos_engineering_nandigam}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ab86f2ca8f7896f7fa6be1103d42863d}{%
+           family={Nandigam},
+           familyi={N\bibinitperiod},
+           given={Venkata\bibnamedelimb Durga\bibnamedelima Ganesh},
+           giveni={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{fullhash}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{fullhashraw}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{bibnamehash}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{authorbibnamehash}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{authornamehash}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{authorfullhash}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \strng{authorfullhashraw}{ab86f2ca8f7896f7fa6be1103d42863d}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Google Scholar}
+      \field{title}{CHAOS ENGINEERING: STRESS-TESTING MICROSERVICES FOR RESILIENCE}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.researchgate.net/profile/Venkata-Durga-Ganesh-Nandigam-2/publication/389674431_Chaos_engineering_Stress-testing_microservices_for_resilience/links/6840500bc33afe388aca1535/Chaos-engineering-Stress-testing-microservices-for-resilience.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.researchgate.net/profile/Venkata-Durga-Ganesh-Nandigam-2/publication/389674431_Chaos_engineering_Stress-testing_microservices_for_resilience/links/6840500bc33afe388aca1535/Chaos-engineering-Stress-testing-microservices-for-resilience.pdf
+      \endverb
+    \endentry
+    \entry{microservices_cloud_native_oyeniran}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=0c20fa727d41fe14ea21235d16e51b96}{%
+           family={Oyeniran},
+           familyi={O\bibinitperiod},
+           given={Oyekunle\bibnamedelima Claudius},
+           giveni={O\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=d4aa44f267ecbd6a2e89af2c3d3dad95}{%
+           family={Adewusi},
+           familyi={A\bibinitperiod},
+           given={Adebunmi\bibnamedelima Okechukwu},
+           giveni={A\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=64012fac7c56015bcb6bcbdd8bc2cefe}{%
+           family={Adeleke},
+           familyi={A\bibinitperiod},
+           given={Adams\bibnamedelima Gbolahan},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=74bd87ada3fef5c946ea914e77377993}{%
+           family={Akwawa},
+           familyi={A\bibinitperiod},
+           given={Lucy\bibnamedelima Anthony},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=f9802cc1129556db543b85457684150c}{%
+           family={Azubuko},
+           familyi={A\bibinitperiod},
+           given={Chidimma\bibnamedelima Francisca},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{d5e07544867ef4d92be98d9589cfaa06}
+      \strng{fullhash}{20b979de0c2ad61775b157179f0f7fef}
+      \strng{fullhashraw}{20b979de0c2ad61775b157179f0f7fef}
+      \strng{bibnamehash}{d5e07544867ef4d92be98d9589cfaa06}
+      \strng{authorbibnamehash}{d5e07544867ef4d92be98d9589cfaa06}
+      \strng{authornamehash}{d5e07544867ef4d92be98d9589cfaa06}
+      \strng{authorfullhash}{20b979de0c2ad61775b157179f0f7fef}
+      \strng{authorfullhashraw}{20b979de0c2ad61775b157179f0f7fef}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Applied Research in Science and Engineering (IJARISE)}
+      \field{title}{Microservices Architecture in Cloud-Native Applications: Design Patterns and Scalability}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ijarise.org/index.php/ijarise/article/view/66
+      \endverb
+      \verb{url}
+      \verb https://ijarise.org/index.php/ijarise/article/view/66
+      \endverb
+    \endentry
+    \entry{architectural_evolution_netflix_patlolla}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1b6bf25a743c4b395cdda7d204e546d6}{%
+           family={Patlolla},
+           familyi={P\bibinitperiod},
+           given={Sridhar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{fullhash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{fullhashraw}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{bibnamehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authorbibnamehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authornamehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authorfullhash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authorfullhashraw}{1b6bf25a743c4b395cdda7d204e546d6}
+      \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Dialnet}
+      \field{title}{Architectural Evolution from Monolithic to Microservices in Scalable Systems: A Case Study of Netflix}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=10164353
+      \endverb
+      \verb{url}
+      \verb https://dialnet.unirioja.es/servlet/articulo?codigo=10164353
+      \endverb
+    \endentry
+    \entry{enhancing_security_patlolla}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1b6bf25a743c4b395cdda7d204e546d6}{%
+           family={Patlolla},
+           familyi={P\bibinitperiod},
+           given={Sridhar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{fullhash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{fullhashraw}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{bibnamehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authorbibnamehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authornamehash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authorfullhash}{1b6bf25a743c4b395cdda7d204e546d6}
+      \strng{authorfullhashraw}{1b6bf25a743c4b395cdda7d204e546d6}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Primera Scientific Engineering (PSEN)}
+      \field{title}{Enhancing Security: Vulnerability Detection and Monitoring in Microservices within Multi-Cloud Environments Utilizing Sysdig}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://primerascientific.com/pdf/psen/PSEN-06-178.pdf
+      \endverb
+      \verb{url}
+      \verb https://primerascientific.com/pdf/psen/PSEN-06-178.pdf
+      \endverb
+    \endentry
+    \entry{performance_impact_ramu}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c1d2ef40c62efa9c76e2b42293b9f85e}{%
+           family={Ramu},
+           familyi={R\bibinitperiod},
+           given={Basavegowda},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{fullhash}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{fullhashraw}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{bibnamehash}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{authorbibnamehash}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{authornamehash}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{authorfullhash}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \strng{authorfullhashraw}{c1d2ef40c62efa9c76e2b42293b9f85e}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Review of Contemporary Scientific and Academic Studies (RCSAS)}
+      \field{title}{Performance Impact of Microservices Architecture}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://thercsas.com/wp-content/uploads/2023/06/rcsas3062023010.pdf
+      \endverb
+      \verb{url}
+      \verb https://thercsas.com/wp-content/uploads/2023/06/rcsas3062023010.pdf
+      \endverb
+    \endentry
+    \entry{architectural_debt_toledo}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=8656270574d9593874241c08f1bfb545}{%
+           family={Toledo},
+           familyi={T\bibinitperiod},
+           given={Saulo\bibnamedelima Soares},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=dcf31c5b01f10053d4c4827bca085783}{%
+           family={Martini},
+           familyi={M\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=27c79378a1a7ea7dfaf49005326bd9b4}{%
+           family={Przybyszewska},
+           familyi={P\bibinitperiod},
+           given={Agata},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cb93c38e54be762d9a2f026ecf2dc247}{%
+           family={Sjøberg},
+           familyi={S\bibinitperiod},
+           given={Dag\bibnamedelimb I.\bibnamedelimi K.},
+           giveni={D\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{d410cd3358b66a6b8e99025c44ecc8d0}
+      \strng{fullhash}{006bb42e5292136178bd3f03c32d336d}
+      \strng{fullhashraw}{006bb42e5292136178bd3f03c32d336d}
+      \strng{bibnamehash}{d410cd3358b66a6b8e99025c44ecc8d0}
+      \strng{authorbibnamehash}{d410cd3358b66a6b8e99025c44ecc8d0}
+      \strng{authornamehash}{d410cd3358b66a6b8e99025c44ecc8d0}
+      \strng{authorfullhash}{006bb42e5292136178bd3f03c32d336d}
+      \strng{authorfullhashraw}{006bb42e5292136178bd3f03c32d336d}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE/ACM International Conference on Technical Debt (TechDebt)}
+      \field{title}{Architectural Technical Debt in Microservices: A Case Study in a Large Company}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://d1wqtxts1xzle7.cloudfront.net/112276296/TechDebt_2019_paper___ATD_in_MS___PREPRINT-libre.pdf
+      \endverb
+      \verb{url}
+      \verb https://d1wqtxts1xzle7.cloudfront.net/112276296/TechDebt_2019_paper___ATD_in_MS___PREPRINT-libre.pdf
+      \endverb
+    \endentry
+    \entry{survey_microservices_velepucha}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=bbd05f3e4985e2264f2274b3740903dd}{%
+           family={Velepucha},
+           familyi={V\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=c545f8f2056f1b258e0827b31309492d}{%
+           family={Flores},
+           familyi={F\bibinitperiod},
+           given={Pamela},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{ce5655542476720466e4f7f92b03239e}
+      \strng{fullhash}{ce5655542476720466e4f7f92b03239e}
+      \strng{fullhashraw}{ce5655542476720466e4f7f92b03239e}
+      \strng{bibnamehash}{ce5655542476720466e4f7f92b03239e}
+      \strng{authorbibnamehash}{ce5655542476720466e4f7f92b03239e}
+      \strng{authornamehash}{ce5655542476720466e4f7f92b03239e}
+      \strng{authorfullhash}{ce5655542476720466e4f7f92b03239e}
+      \strng{authorfullhashraw}{ce5655542476720466e4f7f92b03239e}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{A Survey on Microservices Architecture: Principles, Patterns and Migration Challenges}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/abstract/document/10220070
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/abstract/document/10220070
+      \endverb
+    \endentry
+    \entry{microservices_strategic_yustiana}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=491e100c6118a7b7fa6760dcb7a30e74}{%
+           family={Yustiana},
+           familyi={Y\bibinitperiod},
+           given={Indra},
+           giveni={I\bibinitperiod}}}%
+        {{hash=de91d39e17dcbee041dc1215369e17da}{%
+           family={Hermanto},
+           familyi={H\bibinitperiod},
+           given={Hermanto},
+           giveni={H\bibinitperiod}}}%
+        {{hash=217613179788f401bfedb202b7023def}{%
+           family={Lestari},
+           familyi={L\bibinitperiod},
+           given={Fitrina},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{fullhash}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{fullhashraw}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{bibnamehash}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{authorbibnamehash}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{authornamehash}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{authorfullhash}{5bb390dd43bec811668bfb9c8d9f0628}
+      \strng{authorfullhashraw}{5bb390dd43bec811668bfb9c8d9f0628}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Digital Business: Tren Bisnis Masa Depan}
+      \field{title}{Microservices in strategic public service delivery: a systematic review and future research agenda for smart governance}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ejournal.cria.or.id/index.php/db/article/view/301/235
+      \endverb
+      \verb{url}
+      \verb https://ejournal.cria.or.id/index.php/db/article/view/301/235
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

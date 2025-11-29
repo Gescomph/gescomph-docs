@@ -1,0 +1,65 @@
+\begin{tikzpicture}[
+    every node/.append style={font=\small},
+    node distance=4cm,
+    auto,
+    block/.style={
+        rectangle,
+        draw=black,
+        thick,
+        fill=white,
+        text width=3cm,
+        align=center,
+        rounded corners,
+        minimum height=1.2cm,
+        drop shadow
+    },
+    line/.style={
+        draw,
+        thick,
+        -latex',
+        shorten >=2pt
+    },
+    dashed_line/.style={
+        draw,
+        dashed,
+        thick,
+        -latex',
+        shorten >=2pt
+    }
+]
+
+    % Nodos (Lifelines implícitos por posición vertical)
+    \node[block, fill=blue!10] (controller) {Controller\\(Presentation)};
+    \node[block, fill=green!10, right of=controller] (service) {Service\\(Business Logic)};
+    \node[block, fill=orange!10, right of=service] (repo) {Repository\\(Data Access)};
+    \node[block, fill=gray!10, right of=repo] (db) {Database\\(SQL Server)};
+
+    % Líneas de tiempo verticales (simuladas)
+    \draw[thick, gray] (controller.south) -- ++(0,-6);
+    \draw[thick, gray] (service.south) -- ++(0,-6);
+    \draw[thick, gray] (repo.south) -- ++(0,-6);
+    \draw[thick, gray] (db.south) -- ++(0,-6);
+
+    % Interacciones
+    % 1. Request
+    \draw[line] ([yshift=-1cm]controller.south) -- node[above, font=\footnotesize] {1. CreateAsync(DTO)} ([yshift=-1cm]service.south);
+    
+    % 2. Validation & Mapping
+    \node[draw, dashed, inner sep=2pt, fill=yellow!10, font=\tiny, align=left] at ([yshift=-1.5cm, xshift=2cm]service.south) {Validación y\\Mapeo a Entidad};
+
+    % 3. Call Repo
+    \draw[line] ([yshift=-2.5cm]service.south) -- node[above, font=\footnotesize] {2. AddAsync(Entity)} ([yshift=-2.5cm]repo.south);
+
+    % 4. DB Transaction
+    \draw[line] ([yshift=-3.5cm]repo.south) -- node[above, font=\footnotesize] {3. SaveChanges()} ([yshift=-3.5cm]db.south);
+
+    % 5. Return ID
+    \draw[dashed_line] ([yshift=-4.5cm]db.south) -- node[above, font=\footnotesize] {4. ID Generado} ([yshift=-4.5cm]repo.south);
+
+    % 6. Return Result
+    \draw[dashed_line] ([yshift=-5cm]repo.south) -- node[above, font=\footnotesize] {5. Entidad Persistida} ([yshift=-5cm]service.south);
+
+    % 7. Response
+    \draw[dashed_line] ([yshift=-5.5cm]service.south) -- node[above, font=\footnotesize] {6. 201 Created (DTO)} ([yshift=-5.5cm]controller.south);
+
+\end{tikzpicture}

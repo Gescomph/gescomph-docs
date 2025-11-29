@@ -1,0 +1,41 @@
+\section{Discusión}
+\label{sec:discusion}
+
+\subsection{Análisis de Costos: La Realidad de la Nube}
+Uno de los argumentos más fuertes a favor de nuestra arquitectura es la eficiencia de costos. Desplegar una arquitectura de microservicios en Azure o AWS implica costos base por cada servicio (CPU/RAM reservada, Networking, Ingress).
+
+Realizamos una proyección de costos comparativa para un despliegue en Azure (East US), considerando un tráfico medio de 500 usuarios concurrentes.
+
+\begin{table}[H]
+    \centering
+    \caption{Proyección Mensual de Costos de Infraestructura (Azure)}
+    \label{tab:costos_nube}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+    \textbf{Componente} & \textbf{Microservicios (AKS/ACA)} & \textbf{Monolito (App Service)} \\ \midrule
+    Cómputo (CPU/RAM) & \$140 (Cluster/Nodos) & \$55 (Plan B1/S1) \\
+    Base de Datos & \$15 (Instancias compartidas) & \$5 (Single DB) \\
+    Networking/Ingress & \$30 (Load Balancer) & \$0 (Incluido) \\
+    Observabilidad & \$50 (Logs distribuidos) & \$10 (Logs centralizados) \\ \midrule
+    \textbf{Total Mensual} & \textbf{\$235 USD} & \textbf{\$70 USD} \\ \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+Para una entidad pública municipal con presupuesto limitado, la diferencia es abismal. El ahorro del 70\% en infraestructura permite redirigir recursos hacia desarrollo evolutivo o capacitación de usuarios, aportando más valor real que una arquitectura "perfecta" pero insostenible.
+
+La síntesis de los resultados obtenidos en la implementación de GESCOMPH plantea una reflexión crítica sobre la inercia tecnológica que a menudo empuja a las instituciones públicas hacia arquitecturas distribuidas prematuras. Si bien la literatura contemporánea, ejemplificada por trabajos como los de \cite{microservices_cloud_native_oyeniran}, ensalza las virtudes de la escalabilidad infinita de los microservicios, nuestra experiencia sugiere que para sistemas de gestión con una carga transaccional predecible y una complejidad de dominio moderada, el costo operativo de dicha distribución supera sus beneficios marginales. La adopción de una Arquitectura Limpia sobre un Monolito Modular no ha estado exenta de fricciones; la estricta inversión de dependencias introduce una verbosidad innegable en el código —el llamado "boilerplate"— y exige una disciplina cognitiva constante por parte del equipo de desarrollo para no sucumbir a la tentación de los atajos arquitectónicos. Sin embargo, este costo inicial se revela como una inversión en longevidad. Al contrastar nuestra estructura con la deuda técnica documentada por \cite{architectural_debt_toledo} en sistemas que priorizaron la velocidad de entrega sobre la integridad estructural, se hace evidente que la rigidez de nuestras fronteras físicas (\texttt{.csproj}) actúa como un seguro contra la entropía, permitiendo que el sistema mantenga su mantenibilidad a lo largo de los ciclos presupuestarios anuales típicos del sector público.
+
+Más allá de la estabilidad actual, la discusión debe abordar la viabilidad evolutiva del sistema. Los críticos del enfoque monolítico podrían argumentar que GESCOMPH es vulnerable a cuellos de botella de escalabilidad en componentes específicos. Reconocemos esta limitación teórica; sin embargo, la estrategia de \textit{Vertical Slicing} implementada neutraliza el riesgo de bloqueo arquitectónico. A diferencia de un monolito tradicional donde la lógica está entrelazada, nuestros módulos de "Notificaciones" o "Auditoría" son candidatos triviales para una extracción futura hacia funciones \textit{serverless} o contenedores independientes si la telemetría así lo indicara. Esta capacidad de diferir la decisión de distribución hasta el "último momento responsable" es, en sí misma, una ventaja táctica que nos ha permitido centrar los recursos limitados en la corrección de la lógica de negocio y la seguridad, en lugar de en la orquestación de un enjambre de servicios. Mirando hacia el horizonte tecnológico, la evolución natural de GESCOMPH no apunta hacia una explosión de microservicios, sino hacia una integración más profunda de capacidades de inteligencia en los bordes del monolito; la incorporación de validaciones predictivas mediante IA o la inmutabilidad de registros mediante Blockchain, sugeridas por \cite{dynamic_adaptive_api_kaul}, son factibles precisamente porque el núcleo transaccional es sólido y coherente, no fragmentado. En última instancia, este estudio defiende que la verdadera modernización no reside en la adopción ciega de patrones de hiperescala, sino en la construcción de sistemas que sean lo suficientemente robustos para operar hoy y lo suficientemente modulares para cambiar mañana.
+
+\subsection{Lecciones Aprendidas y Errores Superados}
+El camino hacia esta arquitectura no fue lineal. Documentamos aquí los errores más significativos para beneficio de futuros implementadores:
+
+\begin{itemize}
+    \item \textbf{La trampa de la abstracción prematura:} Inicialmente, intentamos desacoplar completamente la API de la lógica usando el patrón \textit{Mediator} (librería MediatR). Si bien redujo el acoplamiento, hizo que la navegación por el código fuera una pesadilla ("Go to definition" llevaba al handler genérico, no a la implementación). \textbf{Solución:} Revertimos a inyección de dependencias directa para servicios de dominio, reservando MediatR solo para eventos de dominio asíncronos.
+    
+    \item \textbf{Infierno de Permisos en Docker:} El desarrollo en Windows con contenedores Linux presentó desafíos constantes de permisos de escritura en volúmenes montados (especialmente para la generación de reportes PDF y logs). \textbf{Solución:} Estandarizamos el uso de usuarios no-root dentro de los contenedores y configuramos explícitamente los GID/UID en el \texttt{docker-compose.yml}, una práctica que ahora es parte de nuestro estándar de seguridad.
+    
+    \item \textbf{Duplicidad de Validaciones:} Al principio, validábamos reglas de negocio (e.g., "fecha fin > fecha inicio") tanto en el Frontend (React) como en el Backend. Esto generaba inconsistencias cuando cambiaba una regla. \textbf{Solución:} Centralizamos las reglas en el Backend usando \textit{FluentValidation} y expusimos un endpoint de "Dry-Run" que el Frontend consulta para validar formularios complejos antes del envío final.
+\end{itemize}
